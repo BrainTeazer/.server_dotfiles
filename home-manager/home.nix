@@ -7,6 +7,7 @@ in
   imports = [ 
 	./tools/zsh/zsh.nix
 	./tools/nvim/nvim.nix
+	./tools/git/git.nix
   ];
 
   home = {

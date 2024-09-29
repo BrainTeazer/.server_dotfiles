@@ -79,22 +79,9 @@
 
 	shell = pkgs.zsh;
 
-	#openssh.authorizedKeys.keys = [
-	#	ssh-public-key
-	#];
-  };
-
-  programs.git = {
-  	enable = true;
-	config = {
-		init = {
-			defaultBranch = "main";
-		};
-		user= {
-			name = "aybanj";
-			email = "ay.banj@proton.me";
-		};
-	};
+	openssh.authorizedKeys.keys = [
+		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJI23I0Q25qXXN3hAYzYkxMisMo0ZIz32MR1FwW3aZs ayam.banjade@gmail.com"
+	];
   };
 
   environment.systemPackages = with pkgs; [
@@ -118,8 +105,8 @@
   	enable = true;
 	ports = [ 22 ];
 	settings = {
-		#PasswordAuthentication = false;
-		#KbdInteractiveAuthentication = false;
+		PasswordAuthentication = false;
+		KbdInteractiveAuthentication = false;
 		AllowUsers = null;	
 		UseDns = true;
 		X11Forwarding = true;
