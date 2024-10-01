@@ -75,6 +75,7 @@
 		jellyfin
 		jellyfin-web
 		jellyfin-ffmpeg
+		audiobookshelf
 	];
 
 	shell = pkgs.zsh;
@@ -97,6 +98,9 @@
 
 	audiobookshelf = {
 		enable = true;
+		openFirewall = true;
+		port = 13378;
+		host = "192.168.178.40";
 	};
   };
 
