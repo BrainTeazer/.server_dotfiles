@@ -59,18 +59,25 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
 	vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  	jellyfin-ffmpeg = pkgs.jellyfin-ffmpeg.override {
+		ffmpeg_6-full = pkgs.ffmpeg_6-full.override {
+			withMfx = false;
+			withVpl = true;
+		};
+	};
   };
 
   hardware.opengl = {
 	enable = true;
 	extraPackages = with pkgs; [
 		intel-media-driver
-		intel-vaapi-driver
 		vaapiVdpau
 		intel-compute-runtime
 		onevpl-intel-gpu
 	];
   };
+
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
