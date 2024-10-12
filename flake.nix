@@ -17,6 +17,7 @@
 		inherit system;
 		modules = [
 			./hosts/pandora/configuration.nix
+			./hosts/common/modules/qbittorrent.nix
 		];
 	};
 

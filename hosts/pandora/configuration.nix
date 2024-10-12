@@ -76,6 +76,12 @@
 		jellyfin-web
 		jellyfin-ffmpeg
 		audiobookshelf
+
+		qbittorrent-nox
+		protonvpn-cli_2
+
+		# utilities
+		btop
 	];
 
 	shell = pkgs.zsh;
@@ -101,6 +107,12 @@
 		openFirewall = true;
 		port = 13378;
 		host = "192.168.178.40";
+	};
+
+	qbittorrent = {
+		enable = true;
+		openFirewall = true;
+		port = 58080;
 	};
   };
 
