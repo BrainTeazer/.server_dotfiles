@@ -18,7 +18,7 @@ in
 
   programs = {
 	# Enable home manager
-    	home-manager.enable = true;
+    home-manager.enable = true;
 
 	direnv = {
 		enable = true;

@@ -62,7 +62,7 @@
   };
 
   programs.zsh.enable = true;
-  
+
   # Defining user account (dr). Set a new password with 'passwd'
   users.users.dr = {
   	initialPassword = "password";
@@ -95,6 +95,10 @@
 	wget
 	curl
   ];
+
+  environment.variables = {
+  	EDITOR = "nvim";
+  };
 
   services = {
   	jellyfin = {
