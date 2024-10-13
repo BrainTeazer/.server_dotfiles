@@ -106,7 +106,7 @@
 		enable = true;
 		openFirewall = true;
 		port = 13378;
-		host = "192.168.178.40";
+		host = "0.0.0.0";
 	};
 
 	qbittorrent = {
