@@ -60,20 +60,20 @@
   nixpkgs.config.packageOverrides = pkgs: {
 	vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   	jellyfin-ffmpeg = pkgs.jellyfin-ffmpeg.override {
-		ffmpeg_6-full = pkgs.ffmpeg_6-full.override {
+		ffmpeg_7-full = pkgs.ffmpeg_7-full.override {
 			withMfx = false;
 			withVpl = true;
 		};
 	};
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
 	enable = true;
 	extraPackages = with pkgs; [
 		intel-media-driver
 		vaapiVdpau
 		intel-compute-runtime
-		onevpl-intel-gpu
+        vpl-gpu-rt
 	];
   };
 
