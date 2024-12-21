@@ -22,7 +22,7 @@
 	};
 
 	loader.efi.canTouchEfiVariables = true;
-	kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
 	supportedFilesystems = [ "zfs" ];
 	zfs.extraPools = [ "datapool" ];
 	kernelParams = [ "nohibernate" ];
@@ -68,7 +68,7 @@
   	initialPassword = "password";
   	isNormalUser = true;
 	home = "/home/dr";
-	extraGroups = [ "wheel" ];
+	extraGroups = [ "wheel" "qbittorrent" ];
 
 	# add user specific packages
 	packages = with pkgs; [
@@ -96,6 +96,10 @@
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJI23I0Q25qXXN3hAYzYkxMisMo0ZIz32MR1FwW3aZs ayam.banjade@gmail.com"
 	];
   };
+    
+  systemd.tmpfiles.rules =  [
+    "A /data/media - - - - g:qbittorrent:rwx, g:jellyfin:rx, g:navidrome:rx"
+  ];
 
   environment.systemPackages = with pkgs; [
 	wget
